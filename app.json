@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/my/my",
+    "pages/start/start",
+    "pages/index/index",
+    "pages/vote/vote",
+    "pages/repairs/repairs"
+   
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F34A51",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F34A51",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index-hover.png"
+      },
+      {
+        "pagePath": "pages/vote/vote",
+        "text": "投票",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart-hover.png"
+      },
+      {
+        "pagePath": "pages/repairs/repairs",
+        "text": "报修",
+        "iconPath": "images/wuye.png",
+        "selectedIconPath": "images/wuye-hover.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-hover.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
