@@ -16,5 +16,8 @@ Config.onPay = true;
 
 //统一管理接口定义
 Config.getToken = Config.api + 'getToken'; //获取用户TOKEN接口
+Config.verifyToken = Config.api+'verifyToken'; //验证TOKEN接口
+Config.modifyUser = Config.api+'modifyUser';//更新用户信息
+Config.systemInfo = Config.api+'systemInfo';//获取应用信息
 
 export {Config};

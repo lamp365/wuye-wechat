@@ -7,7 +7,7 @@ class Base{
         this.token = Config.tokenName;
     }
    
-     //http 请求类, 当needReLogin为false时，不做未授权重试机制
+     //http 请求类, 当needReLogin为true时，未授权重试登录机制
      request(params, needReLogin) {
 
         var that = this,url=params.url;
@@ -28,26 +28,22 @@ class Base{
             },
             success: function (res) {
                 
-                console.log(res);
-
-                // 判断以2（2xx)开头的状态码为正确
-                // 异常不要返回到回调中，就在request中处理，记录日志并showToast一个统一的错误即可
-                var code = res.statusCode.toString();
-                var startChar = code.charAt(0);
-                if (startChar == '2') {
+                // console.log(res.data.data);
+                if (res.data.code == 200) {
                     
-                    //结果以参数形式传给回调函数中处理
-                    params.sCallback && params.sCallback(res.data);
+                   //结果以参数形式传给回调函数中处理
+                   params.sCallback && params.sCallback(res.data.data);
 
                 } else {
 
-                    if (code == '401') {
+                    if (res.data.code == '401') {
                         if (needReLogin) {
-                            that.getTokenFromServer(params);
+                            that.getTokenFromServer(params.sCallback);
                         }
                     }
                     console.log(res);
-                    params.eCallback && params.eCallback(res.data);
+                    // params.eCallback && params.eCallback(res.data);
+                    that._showMessageToast(res.data.msg)
                 }
             },
             fail: function (err) {
@@ -58,7 +54,7 @@ class Base{
         });
     }
 
-    getTokenFromServer(parame){
+    getTokenFromServer(callBack){
         var that = this;
         wx.login({
           success:function(res){
@@ -72,8 +68,9 @@ class Base{
                     if(res.data.code == 200){
                         var token = res.data.data;
                         wx.setStorageSync(Config.tokenName,token);
+                        callBack&&callBack(token);  //执行回调函数
                     }else{
-                        that._timeOutError();
+                        that._showMessageToast();
                     }
                 }
               })
@@ -82,9 +79,18 @@ class Base{
     }
     veirfyFromServer(token){
         var that = this;
-        // wx.request({
-        //   url: 'url',
-        // })
+        wx.request({
+          url: Config.verifyToken,
+          method: 'POST',
+          data: {
+            token: token
+          },
+          success:function(res){
+            if(res.data.code != 200){
+                that.getTokenFromServer();
+            }
+          }
+        })
     }
     tokenVerify(){
         var token = wx.getStorageSync(Config.tokenName);
@@ -95,11 +101,11 @@ class Base{
         }
     }
      /**网络异常*/
-     _timeOutError(){
+     _showMessageToast(title='网络异常'){
         wx.showToast({
-            title: '网络异常',
+            title: title,
             icon: 'none',
-            duration: 1500
+            duration: 2000
         })
     }
 }
