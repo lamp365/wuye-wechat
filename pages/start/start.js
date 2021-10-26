@@ -1,4 +1,5 @@
 // pages/start/start.js
+import { Config } from '../../utils/config';
 Page({
 
   /**
@@ -15,6 +16,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取token
+    var token = wx.getStorageSync(Config.tokenName);
+    if(token){
+      wx.switchTab({
+        url: '../index/index',
+      })
+    }
+   if(!token){
+     
+   }
     this.setData({
       datas : {'system_name':'中特','system_desc':'您好'},
       showLoading : false

@@ -1,19 +1,19 @@
 // app.js
+import {Base} from "utils/base.js";
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    var BaseObj = new Base();
+    BaseObj.tokenVerify();  //有则验证  没有就登录
   },
+  onShow:function(){
+    
+  },
+  //使用全局变量解决页面的传值问题  
   globalData: {
-    userInfo: null
+    address:'', //用户地址-在使用    
+    userId: '', //用户userId
+    api: '', //接口地址
+    baseUrl: '', //图片地址
+    applet:'', //小程序名字 
   }
 })
