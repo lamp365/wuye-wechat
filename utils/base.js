@@ -108,6 +108,24 @@ class Base{
             duration: 2000
         })
     }
+
+    /*
+    * 提示窗口
+    * params:
+    * title - {string}标题
+    * content - {string}内容
+    * flag - {bool}是否跳转到 "我的页面"
+    */
+   showTipsLog(title,content,flag){
+        wx.showModal({
+            title: title,
+            content: content,
+            showCancel:false,
+            success: function(res) {
+                
+            }
+        });
+    }
 }
 
 export {Base}

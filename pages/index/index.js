@@ -1,48 +1,59 @@
 // index.js
+import { Config } from '../../utils/config.js';
+import { Base } from '../../utils/base';
+//实例化对象
+var BaseObj = new Base();
 // 获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    baseUrl: Config.baseUrl, //图片路径
+    notice: [], //公示公告
+    showLoading: true, //加载中动画
+    wuyeName: '', //配置信息、小区物业名字
+    activity: [], //社区活动
+    story: [], //社区故事
+    storeActivity: [], //店铺活动
+    news: [], //社区新闻
+    hotShop: [], //热销商品
+    currPage: 1, //新品推荐分页页数
+    totalPage: '', //新品推荐总页数
+    newShop: [], //新品推荐商品
+    repa: '', //正在维修的维修订单
+    bannerArr:[], //轮播图
+    swiperCurrent:0,
+    bannerName:Config.bannerName, //名称
+    bannerDescription:Config.bannerDescription, //描述
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+
+  
   onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
+    this.getBannerList();
+
   },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+  //获取bannerlist
+  getBannerList:function(){
+    var that = this;
+    var parame ={
+      url : Config.getBanner,
+      sCallback:function(res){
+        bannerArr: res;
+        baseUrl:Config.baseUrl
       }
-    })
+    }
+    BaseObj.request(parame);
   },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  // 公告快讯
+  indexArticle:function(){
+    var parame = {
+      url: Config.indexArticle,
+      data: {pageNo:1,pageSize:6},
+      type: 'post',
+      sCallback:function(res){
+        console(res);
+      }
+    };
+    BaseObj.request(parame);
   }
 })

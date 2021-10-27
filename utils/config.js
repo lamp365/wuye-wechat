@@ -19,5 +19,9 @@ Config.getToken = Config.api + 'getToken'; //获取用户TOKEN接口
 Config.verifyToken = Config.api+'verifyToken'; //验证TOKEN接口
 Config.modifyUser = Config.api+'modifyUser';//更新用户信息
 Config.systemInfo = Config.api+'systemInfo';//获取应用信息
+//index
+Config.getBanner = Config.api+'getBanner';//获取轮播图
+Config.indexArticle = Config.api + 'indexArticle'; //公告快讯
+
 
 export {Config};
