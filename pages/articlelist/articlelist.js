@@ -23,7 +23,6 @@ Page({
    */
   onLoad: function (options) {
   
-      this.data.articleType = options.type;
       var type = options.type;
       switch(type){
         case 'active':

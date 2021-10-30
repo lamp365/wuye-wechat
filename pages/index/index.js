@@ -97,6 +97,13 @@ Page({
       url: '../articlelist/articlelist?type=note',
     })
   },
+  //跳转到详情页
+  bindtapArticleDetail:function(e){
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../detail/detail?id=${id}`
+    });
+  },
   //分享
   onShareAppMessage:function(res){
     return{

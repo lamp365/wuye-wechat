@@ -5,8 +5,7 @@
     "pages/vote/vote",
     "pages/repairs/repairs",
     "pages/my/my",
-    "pages/notelist/notelist",
-    "pages/notelist",
+    "pages/detail/detail",
     "pages/articlelist/articlelist"
   ],
   "window": {
