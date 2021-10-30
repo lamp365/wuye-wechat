@@ -15,30 +15,40 @@ Page({
     totalPage: '', //总页数
     showLoading:true,//加载动画
     articleType:'', //文章类型,
-    pageTitle:'列表' //文章类型
+    pageTitle:'列表', //文章类型
+    isShowNews:false,
+    isShowNote:false,
+    baseUrl:Config.baseUrl
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var isShowNews = false;
+    var isShowNote = false;
       var type = options.type;
       switch(type){
         case 'active':
           var pageTitle = '活动列表';
+          isShowNews = true;
           break;
         case 'news':
           var pageTitle = '新闻列表';
+          isShowNews = true;
           break;
         case 'note':
           var pageTitle = '公告列表';
+          isShowNote = true;
           break;  
       };
       this.setData({
         articleType : options.type,
-        pageTitle : pageTitle
+        pageTitle : pageTitle,
+        isShowNews:isShowNews,
+        isShowNote:isShowNote
       });
+
       //设置标题
       this.setPageTitle();
       //请求数据
@@ -70,6 +80,22 @@ Page({
     }
     BaseObj.request(parame);
   },
+
+  //跳转到详情页
+  bindtapArticleDetail:function(e){
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../detail/detail?id=${id}`
+    });
+  },
+  //分享
+  onShareAppMessage: function (res) {
+    return {
+      title: Config.applet,
+      path: 'pages/start/start'
+    };
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

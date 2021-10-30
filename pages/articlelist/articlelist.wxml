@@ -1,6 +1,6 @@
 <loading wx:if="{{showLoading}}">加载中</loading>
-<view class="notice">
-  <view class="noticelist" wx:for="{{article}}" wx:key="index" data-id="{{item.id}}" bindtap="bindtapNewsDetail">
+<view class="notice" wx:if="{{isShowNote}}">
+  <view class="noticelist" wx:for="{{article}}" wx:key="index" data-id="{{item.id}}" bindtap="bindtapArticleDetail">
     <view class="list-xq pad24">
       <view>{{item.title}}</view>
       <view>{{item.introduction}}</view>
@@ -13,6 +13,28 @@
   <!-- 已加载全部 -->
   <view class="index-qb" wx:if="{{currPage == totalPage && article.length != 0}}"> —— 别扯了，到底了 ——</view>
 </view>
+
+
+<view class="news-item" wx:if="{{isShowNews}}">
+  <!-- 第一条 -->
+  <view class="news-i-one" wx:for="{{article}}" wx:key="index" bindtap="bindtapArticleDetail" data-id="{{item.id}}">
+    <view>
+      <image src="{{baseUrl}}{{item.thumb}}"></image>
+    </view>
+    <view class="news-one-right">
+      <view>{{item.title}}</view>
+      <view>{{pageTitle}}</view>
+      <view>
+        <view>{{item.create_time}}</view>
+        <text>查看详情>></text>
+      </view>
+    </view>
+  </view>
+  <!-- 已加载全部 -->
+  <view class="index-qb" wx:if="{{currPage == totalPage && datas.length != 0}}"> —— 别扯了，到底了 ——</view>
+</view>
+
+
 <!-- 空页面-->
 <view class="cart-kong" wx:if="{{!article || article.length == 0}}">
   <image src="../../images/axinxi.png"></image>

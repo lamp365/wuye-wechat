@@ -33,7 +33,7 @@
  <!-- 公告快讯 -->
  <view class="gong">
     <!-- 公告左侧 -->
-    <view class="gong-left"  bindtap="bindtapNote">
+    <view class="gong-left"  bindtap="bindtapMoreArticle" data-type='note'>
       <image src="../../images/index-gonggao.png"></image>
     </view>
     <!-- 公告右侧 -->
@@ -85,7 +85,7 @@
   <view class="index-news">
     <view class="you-top">
       <view>社区新闻</view>
-      <view bindtap="bindtapNews">更多
+      <view bindtap="bindtapMoreArticle" data-type="news">更多
         <image src="../../images/index-05.png"></image>
       </view>
     </view>
@@ -111,7 +111,7 @@
   <view class="you" wx:if="{{activity}}">
     <view class="you-top">
       <view>社区活动</view>
-      <view bindtap="bindtapNote">更多
+      <view bindtap="bindtapMoreArticle" data-type='active'>更多
         <image src="../../images/index-05.png"></image>
       </view>
     </view>

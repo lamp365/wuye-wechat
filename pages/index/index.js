@@ -92,10 +92,11 @@ Page({
   },
 
   //查看公告列表
-  bindtapNote:function(){
+  bindtapMoreArticle:function(e){
+    let type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: '../articlelist/articlelist?type=note',
-    })
+      url: `../articlelist/articlelist?type=${type}`
+    }) 
   },
   //跳转到详情页
   bindtapArticleDetail:function(e){

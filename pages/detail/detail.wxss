@@ -1,0 +1,57 @@
+page{
+	background: #fff;
+}
+.noticedetails{
+	width: 100%;
+	height: auto;
+}
+.biaoti{
+	padding: 39rpx 0 29rpx 0;
+	font-size: 36rpx;
+	color: #000;
+}
+
+.riqi text:first-child{
+	font-size: 24rpx;
+	color: #888;
+	margin-right: 23rpx;
+}
+.riqi text:last-child{
+	font-size: 30rpx;
+	color: #f00;
+}
+.huodong text{
+	margin-top: 10rpx;
+	display: block;
+	font-size: 28rpx;
+	word-break: break-all;
+	color: rgb(66, 64, 64);
+
+}
+.content{
+	width: 100%;
+	height: auto;
+  margin: 20rpx 0;
+  font-size: 30rpx;
+  line-height: 44rpx;
+}
+.content image{
+	width: 100%;
+	margin: 28rpx 0;
+}
+.r_text{
+	word-break: break-all;
+	/* white-space: pre-wrap; */
+}
+.r_text p {
+	word-break: break-all;
+	white-space: pre-wrap;
+}
+
+/*.content text{
+	font-size: 28rpx;
+	display: block;
+	line-height: 50rpx;
+	text-indent: 2em;
+	color: #111;
+}*/
