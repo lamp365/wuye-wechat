@@ -1,0 +1,21 @@
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="notice">
+  <view class="noticelist" wx:for="{{article}}" wx:key="index" data-id="{{item.id}}" bindtap="bindtapNewsDetail">
+    <view class="list-xq pad24">
+      <view>{{item.title}}</view>
+      <view>{{item.introduction}}</view>
+      <view>
+        <text>{{item.create_time}}</text>
+        <text>| {{pageTitle}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 已加载全部 -->
+  <view class="index-qb" wx:if="{{currPage == totalPage && article.length != 0}}"> —— 别扯了，到底了 ——</view>
+</view>
+<!-- 空页面-->
+<view class="cart-kong" wx:if="{{!article || article.length == 0}}">
+  <image src="../../images/axinxi.png"></image>
+  <view>暂无{{pageTitle}}</view>
+  <view>~ {{pageTitle}}被外星人吃掉了! ~</view>
+</view>

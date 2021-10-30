@@ -1,16 +1,18 @@
 {
-  "pages":[
+  "pages": [
     "pages/start/start",
     "pages/index/index",
     "pages/vote/vote",
     "pages/repairs/repairs",
-    "pages/my/my"
-   
+    "pages/my/my",
+    "pages/notelist/notelist",
+    "pages/notelist",
+    "pages/articlelist/articlelist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F34A51",  
+    "backgroundColor": "#F34A51",
     "backgroundTextStyle": "light"
   },
   "tabBar": {

@@ -5,10 +5,10 @@
  <view class="index-top">
     <!-- 定位底部的图片 -->
     <view class="index-top-image">
-      <swiper class="mall-b-swiper" indicator-dots="true" autoplay="true" interval="4000" duration="1000"  indicator-active-color="#F34A51" circular="true">
+      <swiper class="mall-b-swiper" indicator-dots="true" autoplay="true" interval="4000" duration="1000"  indicator-active-color="#F34A51" circular="true" bindchange="bannerChange">
         <block wx:for="{{bannerArr}}" wx:key="index" >
             <swiper-item class="banner-item" bindtap="onProductsItemTap" data-link="{{item.link}}">
-                <image class="item-image" src="{{baseUrl}}{{item.image}}" mode="aspectFill" />
+                <image class="item-image" src="{{baseUrl}}{{item.image}}" mode="scaleToFill" />
             </swiper-item>
         </block>
       </swiper>
@@ -17,7 +17,7 @@
     <!-- 定位图片上面的内容 -->
     <view class="index-top-w">
       <view>{{bannerName}}</view>
-      <view>{{bannerDescription}}</view>
+      <view>{{bannerDesc}}</view>
     </view>
     <view class="index-top-wz">
       <!-- 搜索 -->
@@ -27,6 +27,109 @@
           <image src="../../images/index-sou.png"></image>
         </view>
       </view>
+    </view>
+  </view>
+
+ <!-- 公告快讯 -->
+ <view class="gong">
+    <!-- 公告左侧 -->
+    <view class="gong-left"  bindtap="bindtapNote">
+      <image src="../../images/index-gonggao.png"></image>
+    </view>
+    <!-- 公告右侧 -->
+    <view class="gong-right">
+      <swiper class="swiper_container"  vertical="true" autoplay="true" circular="true" interval="2000" duration="500" display-multiple-items="1">
+        <block wx:for="{{notice}}" wx:key="index">
+          <swiper-item class="swiper_item">  
+            <view class="swiper_item1"  bindtap="bindtapArticleDetail" data-id="{{item.id}}">{{item.title}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>    <!-- 公告快讯 -->
+  <!-- 精品商城 -->
+  <view class="shang">
+    <view class="shang-item" bindtap="bindReport">
+      <image src="../../images/index-01.png"></image>
+      <view>疫情防控</view>
+    </view>
+
+    <view class="shang-item" bindtap="bindtapRepair">
+      <image src="../../images/index-02.png"></image>
+      <view>在线报修</view>
+    </view>
+  </view>
+   <!-- 定位图片上面的内容 -->
+
+   <!-- 我的报修 -->
+  <view class="xiu" wx:if="{{repa}}">
+    <view class="xiu-top">
+      <view>我的报修</view>
+      <view> <text></text>{{repa.orderStatus}}</view>
+    </view>
+    <view class="xiu-bottom" bindtap="bindMend" data-orderid="{{repa.orderId}}">
+      <view class="xiu-b-left">
+        <view>{{repa.fName}}</view>
+        <image wx:if="{{repa.orderSrc1 && repa.orderSrc1 != 'undefined'}}" src="{{baseUrl}}{{repa.orderSrc1}}"></image>
+        <image wx:if="{{!repa.orderSrc1 || repa.orderSrc1 == 'undefined'}}" src="../../images/index-bx.jpg"></image>
+      </view>
+      <view class="xiu-right">
+        <view>{{repa.orderRemarks}}</view>
+        <view>报修时间：{{repa.createTime}}</view>
+        <view wx:if="{{!repa.userTel}}">本人电话：{{repa.userPhone}}</view>
+        <view wx:if="{{repa.userTel}}">师傅电话：{{repa.userTel}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 社区新闻 -->
+  <view class="index-news">
+    <view class="you-top">
+      <view>社区新闻</view>
+      <view bindtap="bindtapNews">更多
+        <image src="../../images/index-05.png"></image>
+      </view>
+    </view>
+    <view class="news-item">
+      <!-- 第一条 -->
+      <view class="news-i-one" wx:for="{{news}}" wx:key="index" bindtap="bindtapArticleDetail" data-id="{{item.id}}">
+        <view>
+          <image src="{{baseUrl}}{{item.thumb}}"></image>
+        </view>
+        <view class="news-one-right">
+          <view>{{item.title}}</view>
+          <view>活动新闻</view>
+          <view>
+            <view>{{item.create_time}}</view>
+            <text>查看详情>></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 社区活动 -->
+  <view class="you" wx:if="{{activity}}">
+    <view class="you-top">
+      <view>社区活动</view>
+      <view bindtap="bindtapNote">更多
+        <image src="../../images/index-05.png"></image>
+      </view>
+    </view>
+    <!-- 优惠内容 -->
+    <view class="you-bottom">
+      <scroll-view scroll-x style="height: 100%;" scroll-left="scrollleft">
+        <view class="you-b-item">
+          <!-- 第一个优惠商品 -->
+          <view class="shequ" wx:for="{{activity}}" wx:key="index">
+            <image src="{{baseUrl}}{{item.thumb}}"></image>
+            <view class="shequ-item">
+              <view>{{item.title}}</view>
+              <view>发布时间：{{item.create_time}} </view>
+              <view bindtap="bindtapArticleDetail" data-id="{{item.id}}">去看看</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
     </view>
   </view>
 
