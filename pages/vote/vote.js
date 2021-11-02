@@ -86,11 +86,15 @@ Page({
       })
     },
     //跳转到选手 详情页面
-    catchtapPlayerInfo:function(e){
+    bindtapPlayerInfo:function(e){
       var player_id = e.currentTarget.dataset.playerid;
       wx.navigateTo({
         url: '../playerInfo/playerInfo?player_id='+player_id
       })
+    },
+    //阻止冒泡
+    catchtapStopMaoPao:function(){
+      return false; 
     },
     //投一票
     bindtapPlayerVote:function(e){

@@ -44,9 +44,9 @@ class Base{
                             that.getTokenFromServer(params.sCallback);
                         }
                     }
-                    console.log(res);
                     // params.eCallback && params.eCallback(res.data);
                     that._showMessageToast(res.data.msg)
+                    resultData = res.data;  //返回服务器完整数据
                 }
             },
             fail: function (err) {
@@ -108,7 +108,7 @@ class Base{
      _showMessageToast(title='网络异常'){
         wx.showToast({
             title: title,
-            icon: 'success',
+            icon: 'none',
             duration: 2000
         })
     }
