@@ -26,4 +26,13 @@ Config.getArticle = Config.api + 'getArticle'; //公告快讯 社区新闻  社�
 //获取文章列表
 Config.getArticleList = Config.api+'getArticleList';
 Config.articleDetail = Config.api+'articleDetail';
+
+//投票模块
+Config.subject = Config.api+'subject';
+Config.oneSubject = Config.api+'oneSubject';
+Config.player = Config.api+'player';
+Config.playerInfo = Config.api+'playerInfo';
+Config.submitVote = Config.api+'submitVote';
+
+
 export {Config};

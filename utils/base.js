@@ -11,7 +11,7 @@ class Base{
      request(params, needReLogin) {
 
         var that = this,url=params.url;
-        
+        var resultData = '';
         /**不传请求方式默认GET请求 */
         if(!params.type) params.type = 'get';
 
@@ -30,10 +30,13 @@ class Base{
                 
                 // console.log(res.data.data);
                 if (res.data.code == 200) {
-                    
-                   //结果以参数形式传给回调函数中处理
-                   params.sCallback && params.sCallback(res.data.data);
-
+                    if(params.sCallback){
+                        //结果以参数形式传给回调函数中处理
+                        params.sCallback(res.data.data);
+                    }else{
+                        resultData = res.data;  //返回服务器完整数据
+                    }
+            
                 } else {
 
                     if (res.data.code == '401') {
@@ -52,6 +55,7 @@ class Base{
                 // params.eCallback && params.eCallback(err);
             }
         });
+        return resultData;
     }
 
     getTokenFromServer(callBack){
@@ -104,7 +108,7 @@ class Base{
      _showMessageToast(title='网络异常'){
         wx.showToast({
             title: title,
-            icon: 'none',
+            icon: 'success',
             duration: 2000
         })
     }

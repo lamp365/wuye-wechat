@@ -6,7 +6,10 @@
     "pages/repairs/repairs",
     "pages/my/my",
     "pages/detail/detail",
-    "pages/articlelist/articlelist"
+    "pages/articlelist/articlelist",
+    "pages/subjectList/subjectList",
+    "pages/subjectInfo/subjectInfo",
+    "pages/playerInfo/playerInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",
