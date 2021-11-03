@@ -98,29 +98,29 @@ Page({
     },
     //投一票
     bindtapPlayerVote:function(e){
+      var that = this;
       var player_id = e.currentTarget.dataset.playerid;
       var subject_id = e.currentTarget.dataset.subjectid;
       var index = e.currentTarget.dataset.index;
       var parame = {
         url:Config.submitVote,
         data:{player_id:player_id,subject_id:subject_id},
-        type:'post'
-      }; 
-      var data = BaseObj.request(parame);
-      console.log(data);
-      // BaseObj._showMessageToast(data.msg);
-      if(data.code == 200){
-        //更新节点数据
-        var player = this.data.player;
-        for(let i in player){
-            if(i == index){
-              player[i].votes =  player[i].votes * 1+1;
-            }
+        type:'post',
+        needShowMessage:true,
+        sCallback:function(res){
+           //更新节点数据
+           var player = that.data.player;
+           for(let i in player){
+               if(i == index){
+                 player[i].votes =  player[i].votes * 1+1;
+               }
+           }
+           that.setData({
+             player:player
+           })
         }
-        this.setData({
-          player:player
-        })
-      }
+      }; 
+      BaseObj.request(parame);
     },
 
   /**

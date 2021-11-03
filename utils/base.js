@@ -11,13 +11,14 @@ class Base{
      request(params, needReLogin) {
 
         var that = this,url=params.url;
-        var resultData = '';
+        var needShowMessage = false;
+       if(params.hasOwnProperty('needShowMessage'))  needShowMessage = params.needShowMessage;
         /**不传请求方式默认GET请求 */
         if(!params.type) params.type = 'get';
 
         /*不需要再次组装地址*/
         if(params.setUpUrl==false) url = params.url;
-
+    
         wx.request({
             url: url,
             data: params.data,
@@ -30,13 +31,12 @@ class Base{
                 
                 // console.log(res.data.data);
                 if (res.data.code == 200) {
-                    if(params.sCallback){
-                        //结果以参数形式传给回调函数中处理
-                        params.sCallback(res.data.data);
-                    }else{
-                        resultData = res.data;  //返回服务器完整数据
+                    //结果以参数形式传给回调函数中处理
+                    if(needShowMessage){
+                        that._showMessageToast(res.data.msg)
                     }
-            
+                    params.sCallback && params.sCallback(res.data.data);
+                            
                 } else {
 
                     if (res.data.code == '401') {
@@ -44,10 +44,13 @@ class Base{
                             that.getTokenFromServer(params.sCallback);
                         }
                     }
-                    // params.eCallback && params.eCallback(res.data);
-                    that._showMessageToast(res.data.msg)
-                    resultData = res.data;  //返回服务器完整数据
-                }
+                 
+                    if(needShowMessage){
+                     
+                        that._showMessageToast(res.data.msg)
+                    }
+                    params.eCallback && params.eCallback(res.data);
+                                  }
             },
             fail: function (err) {
                 //wx.hideNavigationBarLoading();
@@ -55,7 +58,6 @@ class Base{
                 // params.eCallback && params.eCallback(err);
             }
         });
-        return resultData;
     }
 
     getTokenFromServer(callBack){
