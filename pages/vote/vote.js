@@ -16,11 +16,8 @@ Page({
     currPage: 1, //选手列表分页页数
     totalPage: '', //新品推荐总页数
     subjectList: [], //活动
-    player: [], //投票项目选手
+    player: [] //投票项目选手
 
-    getSelfShopId: '', //自营店铺ID
-    seckill: [], //投票项目
-    times: [], //优惠秒杀倒计时
   },
 
   /**
@@ -148,7 +145,7 @@ Page({
     //点击跳转搜索页面
     bindtapSearch() {
       wx.navigateTo({
-        url: '../search/search?type=1' 
+        url: '../search/search?type=2'   //搜索分类的下标   1选手  2投票项目  3新闻  
       });
     },
 

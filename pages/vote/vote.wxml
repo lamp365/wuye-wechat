@@ -70,6 +70,6 @@
       </view> 
     </view>
   </view>
-  <!-- 已加载全部 -->
-  <view class="index-qb" wx:if="{{currPage == totalPage && newShop.length != 0}}"> —— 别扯了，到底了 ——</view>
+  <!-- 已加载全部 -->  
+  <view class="index-qb" wx:if="{{currPage == totalPage && subjectList.length != 0}}"> —— 别扯了，到底了 ——</view>
 </view>

@@ -31,7 +31,9 @@
 
   <!-- 搜索结果分类 -->
   <view class="seek-sort" wx:if="{{!showSearch && inputValue}}">
-    <view class="{{shopTitleIndex == index ? 'seek-s-active' : ''}}" wx:for="{{shopTitle}}" wx:key="index" bindtap="bindtapShopTitle" data-index="{{index}}">{{item}}</view>
+    <view class="{{typeValue == 3 ? 'seek-s-active' : ''}}"  bindtap="bindtapShopTitle" data-type="3">新闻</view>
+    <view class="{{typeValue == 1 ? 'seek-s-active' : ''}}"  bindtap="bindtapShopTitle" data-type="1">选手</view>
+    <view class="{{typeValue == 2 ? 'seek-s-active' : ''}}"  bindtap="bindtapShopTitle" data-type="2">项目</view>
   </view>
   
   <!-- 选手结果 -->
@@ -39,7 +41,7 @@
     <!-- 第一件商品 -->
     <view class="xin-n-one" wx:for="{{shops}}" wx:key="index" bindtap="bindtapPlayerInfo" data-playerid="{{item.id}}">
       <image src="{{baseUrl}}{{item.thumb}}"></image>
-      <view>{{item.number}}.{{item.nickname}}</view>
+      <view>{{item.number}}号.{{item.nickname}}</view>
       <view>
         <view>{{item.subject_title}}</view>
         <view>得票：{{item.votes}}</view>
@@ -59,16 +61,16 @@
             </view>
             <view>
               <text>{{i.title}}</text>
-              <text>参赛选手：共 {{i.voters}}名</text>
+              <text>参赛选手：共 {{i.players}}名</text>
             </view>
           </view>
           <view class="top-r">去看看></view>
         </view>
         <view class="shop-btm">
           <view class="shop-img">
-            <view wx:for="{{i.player}}" wx:key="index" bindtap="bindtapPlayerInfo" data-playerid="{{item.id}}">
+            <view wx:for="{{i.playerdata}}" wx:key="index" bindtap="bindtapPlayerInfo" data-playerid="{{item.id}}">
               <image src="{{baseUrl}}{{item.thumb}}"></image>
-              <view>{{item.number}}.{{item.nickname}}</view>
+              <view>{{item.number}}号.{{item.nickname}}</view>
             </view>
           </view>
         </view>
@@ -87,7 +89,7 @@
         <view>{{item.title}}</view>
         <view>{{item.category_name}}</view>
         <view>
-          <view>{{item.createTime}}</view>
+          <view>{{item.create_time}}</view>
           <text>查看详情>></text>
         </view>
       </view>

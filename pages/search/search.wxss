@@ -268,15 +268,19 @@ page{
 	padding: 30rpx 20rpx;
 }
 .shop-img{
+	width: 660rpx;
+	height: auto;
 	display: flex;
-	justify-content: space-between;
+ justify-content: space-between;
+ flex-wrap:wrap;
 }
 .shop-img view{
-	width: 200rpx;
+	width: 300rpx;
 	height: 200rpx;
 	position: relative;
 	top: 0;
 	left: 0;
+	margin-bottom: 28rpx;
 }
 .shop-img view image{
 	width: 100%;

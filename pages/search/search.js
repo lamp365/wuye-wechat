@@ -29,11 +29,11 @@ Page({
     var typeValue = options.type*1;
     switch(typeValue){
       case 1:
-        var shopTitle = '选手';break;
+        var shopTitle = '选手查询';break;
       case 2:
         var shopTitle = '投票活动';break;
       case 3:
-        var shopTitle = '新闻';break;
+        var shopTitle = '新闻查询';break;
       default: 
         var shopTitle = '';
  
@@ -156,6 +156,21 @@ Page({
     });
   },
 
+  bindtapShopTitle:function(e){
+    if (!this.data.inputValue) {
+      BaseObj._showMessageToast('搜索内容不能为空');
+    } else {
+      //console.log(e.currentTarget.dataset.index);
+      var typeValue =  e.currentTarget.dataset.type;
+      this.setData({
+        typeValue:typeValue,
+        currPage: 1, //当前页数
+        totalPage: '', //总页数
+        shops: [], //商品列表
+      });
+      this.getLists(typeValue);
+    }
+  },
     //点击热搜
     bindtapHot(e) {
       let indexs = e.currentTarget.dataset.index;
