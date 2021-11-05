@@ -7,10 +7,11 @@
     "pages/my/my",
     "pages/detail/detail",
     "pages/articlelist/articlelist",
+    "pages/search/search",
     "pages/subjectList/subjectList",
     "pages/subjectInfo/subjectInfo",
-    "pages/playerInfo/playerInfo",
-    "pages/search/search"
+    "pages/playerInfo/playerInfo"
+
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",
