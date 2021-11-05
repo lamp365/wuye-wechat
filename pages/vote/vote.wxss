@@ -76,7 +76,7 @@
 
 .mall-xbanner {
   width: 702rpx;
-  height: 200rpx;
+  height: 260rpx;
   margin: 0 24rpx;
 }
 

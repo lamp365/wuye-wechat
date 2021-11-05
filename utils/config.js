@@ -34,5 +34,8 @@ Config.player = Config.api+'player';
 Config.playerInfo = Config.api+'playerInfo';
 Config.submitVote = Config.api+'submitVote';
 
+//获取搜索
+Config.searchData = Config.api+'searchData';
+
 
 export {Config};

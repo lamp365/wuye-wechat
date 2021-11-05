@@ -145,5 +145,11 @@ Page({
     }
   },
 
+    //点击跳转搜索页面
+    bindtapSearch() {
+      wx.navigateTo({
+        url: '../search/search?type=1' 
+      });
+    },
 
 })

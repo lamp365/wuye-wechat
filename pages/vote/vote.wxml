@@ -3,14 +3,10 @@
 <view class="mall">
   <!-- 头部轮播 -->
   <view class="mall-banner">
-    <swiper class="mall-b-swiper" indicator-dots="true" autoplay="true" interval="4000" duration="1000" indicator-active-color="#F34A51" circular="true">
-      <swiper-item wx:for="{{imgUrls}}" wx:key="index">
-        <image src="{{baseUrl}}{{item.image}}" class="slide-image" />
-      </swiper-item>
-    </swiper>
+        <image src="../../images/vote_banner.jpg" class="slide-image" />
   </view>
   <!-- 搜索 -->
-  <view class="mall-sou" bindtap="bindtapSeek" data-subjectid="{{seckill.id}}">
+  <view class="mall-sou" bindtap="bindtapSearch">
     <view>
       <image src="../../images/mall-02.png"></image>
     </view>
@@ -42,11 +38,7 @@
 
     <!-- 小轮播图 -->
   <view class="mall-xbanner">
-    <swiper class="mall-b-swiper" autoplay="true" interval="5000" duration="1000" circular="true">
-      <swiper-item wx:for="{{seckill.thumbs}}" wx:key="index">
-        <image src="{{baseUrl}}{{item}}" class="slide-image" />
-      </swiper-item>
-    </swiper>
+        <image src="../../images/vote_banner2.jpg" class="slide-image" />
   </view>
 
   <!-- 选手投票 -->

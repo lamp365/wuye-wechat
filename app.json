@@ -9,7 +9,8 @@
     "pages/articlelist/articlelist",
     "pages/subjectList/subjectList",
     "pages/subjectInfo/subjectInfo",
-    "pages/playerInfo/playerInfo"
+    "pages/playerInfo/playerInfo",
+    "pages/search/search"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",

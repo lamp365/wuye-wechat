@@ -111,6 +111,12 @@ Page({
       title: Config.applet,
       path:'pages/start/start'
     }
-  }
+  },
 
+  //点击跳转搜索页面
+  bindtapSearch() {
+    wx.navigateTo({
+      url: '../search/search?type=3' //文章
+    });
+  },
 })
