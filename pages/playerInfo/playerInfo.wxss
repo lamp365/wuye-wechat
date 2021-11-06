@@ -209,9 +209,10 @@
   font-size: 26rpx;
   color:  #fa610e;
   border:none;
-  text-align: center;
+  text-align: right;
+  line-height: 64rpx;
   background: #fff;
-  padding: 0;
+  padding: 0 12rpx; 
 }
 .detail-fen1>button::after{
   border: none;
