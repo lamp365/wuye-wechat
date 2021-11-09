@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/vote/vote",
     "pages/repairs/repairs",
+    "pages/repList/repList",
     "pages/my/my",
     "pages/detail/detail",
     "pages/articlelist/articlelist",
@@ -11,7 +12,6 @@
     "pages/subjectList/subjectList",
     "pages/subjectInfo/subjectInfo",
     "pages/playerInfo/playerInfo"
-
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",

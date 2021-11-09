@@ -130,7 +130,11 @@
   left: 0;
   z-index: 999;
 }
-
+.type-mz .input_style{
+  height: 74rpx;
+  padding-left: 20rpx;
+  padding-right: 28rpx;
+}
 .picker {
   padding: 0 50rpx;
   font-size: 26rpx;

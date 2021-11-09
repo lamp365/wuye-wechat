@@ -9,8 +9,8 @@ Config.debug = false;
 Config.applet = '业主事';
 Config.bannerName = '安泰物业';
 Config.bannerDesc = '贴心改变生活，用心创造价值。';
-Config.api = Config.debug ? 'http://wuye.gxqczy.cn/api/v1/' : "http://wuye.gxqczy.cn/api/v1/";
-Config.baseUrl = Config.debug ? "http://wuye.gxqczy.cn" : "http://wuye.gxqczy.cn";
+Config.api = Config.debug ? 'http://wuye.gxqczy.cn/api/v1/' : "http://81.68.240.241:82/api/v1/";
+Config.baseUrl = Config.debug ? "http://wuye.gxqczy.cn" : "http://81.68.240.241:82";
 Config.tokenName = 'token';
 Config.onPay = true;
 
@@ -34,8 +34,16 @@ Config.player = Config.api+'player';
 Config.playerInfo = Config.api+'playerInfo';
 Config.submitVote = Config.api+'submitVote';
 
+//维修模块
+Config.isLogin = Config.api+'isLogin';
+Config.selectHouse = Config.api+'selectHouse';
+Config.postRepair = Config.api+"postRepair";
+
 //获取搜索
 Config.searchData = Config.api+'searchData';
+//图片上传
+Config.uploadFile = Config.api+'uploadFile';
+
 
 
 export {Config};

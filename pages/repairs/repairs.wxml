@@ -18,10 +18,10 @@
     </view>
     <!-- 报修内容 -->
     <view class="rep-xiu">
-      <!-- 问题类型 -->
+      <!-- 选择小区 -->
       <view class="rep-x-type">
-        <view class="type-top">问题类型
-          <text>(你想报修的问题类型)</text>
+        <view class="type-top">选择小区
+          <text>(你想报修的小区)</text>
         </view>
         <view class="type-xuan">
           <view class="type-dibu">
@@ -30,20 +30,94 @@
           </view>
           <!-- 请选择类型 -->
           <view class="type-mz">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayName}}">
-              <view class="picker">{{arrayName[index]}}</view>
+            <picker bindchange="bindCommunityChange" data-code="{{community_arr[c_index].code}}" value="c_index" range="{{community_arr}}" range-key="{{'name'}}">
+              <view class="picker">{{community_arr[c_index].name}}</view>
             </picker>
           </view>
         </view>
       </view>
       
+      <!-- 选择小区 -->
+      <view class="rep-x-type">
+        <view class="type-top">选择楼号
+          <text>(对应的楼号)</text>
+        </view>
+        <view class="type-xuan">
+          <view class="type-dibu">
+            <view></view>
+            <image src="../../images/my-04.png"></image>
+          </view>
+          <!-- 请选择类型 -->
+          <view class="type-mz">
+            <picker bindchange="bindBuildingChange" data-code="{{building_arr[b_index].code}}"  value="{{b_index}}" range="{{building_arr}}" range-key="{{'floor_num'}}">
+              <view class="picker">{{building_arr[b_index].floor_num}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <!-- 选择小区 -->
+      <view class="rep-x-type">
+        <view class="type-top">选择房号
+          <text>(对应的房号)</text>
+        </view>
+        <view class="type-xuan">
+          <view class="type-dibu">
+            <view></view>
+            <image src="../../images/my-04.png"></image>
+          </view>
+          <!-- 请选择类型 -->
+          <view class="type-mz">
+            <picker bindchange="bindHouseChange" value="{{h_index}}" range="{{house_arr}}" range-key="{{'name'}}">
+              <view class="picker">{{house_arr[h_index].name}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- 问题类型 -->
+      <view class="rep-x-type">
+        <view class="type-top">报修缘故
+          <text>(你想报修的问题缘故)</text>
+        </view>
+        <view class="type-xuan">
+          <view class="type-dibu">
+            <view></view>
+            <image src="../../images/my-04.png"></image>
+          </view>
+          <!-- 请选择类型 -->
+          <view class="type-mz">
+            <input type="text" placeholder="输入报修缘故" placeholder-style='color:#999;' class='input_style' bindinput="bindReason" value="{{reason}}"></input>
+          </view>
+        </view>
+      </view>
+
       <!-- 描述问题 -->
       <view class="rep-text">
         <view class="type-top">描述问题
           <text>(你想报修的问题详情)</text>
         </view>
-        <textarea class="rep-text-nr" value="{{text}}" bindinput="bindText" placeholder="请补充详细问题"></textarea>
+        <textarea class="rep-text-nr" value="{{desc}}" bindinput="bindDescText" placeholder="请补充详细问题"></textarea>
       </view>
+
+       <!-- 问题类型 -->
+       <view class="rep-x-type">
+        <view class="type-top">联系方式
+          <text>(紧急时方便联系)</text>
+        </view>
+        <view class="type-xuan">
+          <view class="type-dibu">
+            <view></view>
+            <image src="../../images/my-04.png"></image>
+          </view>
+          <!-- 请选择类型 -->
+          <view class="type-mz">
+            <input type="number" placeholder="输入联系方式" placeholder-style='color:#999;' class='input_style' bindinput="bindMobile" value="{{mobile}}"></input>
+          </view>
+        </view>
+      </view>
+
       <!-- 添加图片 -->
       <view class="rep-tu">
         <view class="type-top">请提供相关照片
@@ -51,34 +125,21 @@
         </view>
         <view class="rep-pai">
           <view wx:for="{{temp}}" wx:key="index" wx:if="{{temp.length != 0}}">
-            <view class="rep-x" bindtap="bindShan" data-index="{{index}}">X</view>
+            <view class="rep-x" bindtap="bindDelete" data-index="{{index}}">X</view>
             <image  bindtap="bindPhoto" data-index="{{index}}"  src="{{item}}"></image>
           </view>
           <image bindtap="bindPhoto" wx:if="{{temp.length<3}}" data-index="{{-1}}" src="../../images/rep-03.jpg"></image>
         </view>
       </view>
       <!-- 我的地址 -->
-      <view class="rep-address">
-        <view class="type-top">我的地址</view>
-        <!-- 未填写 -->
-        <view class="rep-add-wei" wx:if="{{!address}}" bindtap="bindAddress">
-          <image src="../../images/rep-04.png"></image>
-          <view>请点击填写你的地址,谢谢合作！</view>
+       <view class="rep-text">
+        <view class="type-top">维修地址
+          <text>(你想报修的地址)</text>
         </view>
-        <!-- 已填写 -->
-        <view class="rep-add-yx" wx:if="{{address}}" bindtap="bindAddress">
-          <view class="rep-add-image">
-            <image src="../../images/rep-05.png"></image>
-          </view>
-          <view class="yixie-nr">
-            <view class="yixie-name">
-              <view>姓名：{{address.userName}}</view>
-              <view>手机号：{{address.userPhone}}</view>
-            </view>
-            <view>地址：{{address.areaId1}}{{address.address}}</view>
-          </view>
-        </view>
+        <textarea class="rep-text-nr" value="{{address}}" bindinput="bindRepairAddress" placeholder="请输入维修地址"></textarea>
       </view>
+
+     
       <!-- 提交按钮 -->
       <view class="rep-anniu">
         <button bindtap="bindButton">提交</button>

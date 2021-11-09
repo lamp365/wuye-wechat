@@ -119,4 +119,9 @@ Page({
       url: '../search/search?type=3' //文章
     });
   },
+  bindtapRepair:function(){
+    wx.switchTab({
+      url: '../repairs/repairs',
+    })
+  },
 })

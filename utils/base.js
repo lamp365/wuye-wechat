@@ -60,6 +60,48 @@ class Base{
         });
     }
 
+    /**执行文件上传 */
+    uploadFile(params,successShowMsg,errorShowMsg){
+        var that = this,url=params.url;
+         /*不需要再次组装地址*/
+        if(params.setUpUrl==false) url = params.url;
+
+        wx.uploadFile({
+            url: url,
+            formData: params.data,
+            filePath: params.imgsrc,
+            name: 'file', //固定
+            method:'post',
+            header: {
+                "content-Type": "multipart/form-data",
+                'token': wx.getStorageSync(that.token)
+            },
+            success: function (res) {
+                
+                // console.log(res);
+                // 判断以2（2xx)开头的状态码为正确
+                // 异常不要返回到回调中，就在request中处理，记录日志并showToast一个统一的错误即可
+                var re_data =  JSON.parse(res.data);
+                // console.log(re_data);
+                if (re_data.code == '200') {
+                    if(successShowMsg) that._showMessageToast(re_data.msg);
+                    //结果以参数形式传给回调函数中处理
+                    params.sCallback && params.sCallback(re_data);
+ 
+                } else {
+                    if(errorShowMsg) that._showMessageToast(re_data.msg);
+                    params.eCallback && params.eCallback(re_data);
+                }
+            },
+            fail: function (err) {
+                var re_data =  JSON.parse(err.data);
+                if(errorShowMsg) that._showMessageToast(re_data.msg);
+                console.log(err);
+                // params.eCallback && params.eCallback(err);
+            }
+        });
+    }
+
     getTokenFromServer(callBack){
         var that = this;
         wx.login({
