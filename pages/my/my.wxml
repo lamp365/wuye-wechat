@@ -44,11 +44,7 @@
 			<image src="../../images/my-b-04.png"></image>
 			<view>投票活动</view>
 		</view>
-		<!-- 第一个 -->
-		<navigator class="my-f-one" url="../activelist/activelist">
-			<image src="../../images/my-b-11.png"></image>
-			<view>物业维修</view>
-		</navigator>
+	
 		<!-- 第一个 -->
 		<navigator class="my-f-one" url="../articlelist/articlelist?type=note">
 			<image src="../../images/my-b-05.png"></image>

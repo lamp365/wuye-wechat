@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/community/community",
     "pages/start/start",
     "pages/index/index",
     "pages/vote/vote",
@@ -12,10 +13,11 @@
     "pages/subjectList/subjectList",
     "pages/subjectInfo/subjectInfo",
     "pages/playerInfo/playerInfo",
-    "pages/community/community",
+  
     "pages/wuye/wuye",
     "pages/visit/visit",
-    "pages/repDetail/repDetail"
+    "pages/repDetail/repDetail",
+    "pages/about/about"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",

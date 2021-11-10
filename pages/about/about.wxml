@@ -1,0 +1,29 @@
+<!--pages/about/about.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="about">
+	<view class="about-title">{{appName}}</view>
+	<view class="about-nr">
+
+    <view class="about-n-item">
+			<view>物业集团：</view>
+			<view>{{wuyeName}}</view>
+		</view>
+
+		<view class="about-n-item" bindtap="bindPhone">
+			<view>物业电话：</view>
+			<view class="arrow1">{{phone}}</view>
+		</view>
+	
+		<view class="about-n-item">
+			<view>物业总办：</view>
+			<view>{{address}}</view>
+		</view>
+		<view class="about-n-item">
+			<view>物业邮箱：</view>
+			<view>{{email}}</view>
+		</view>
+		<view class="about-jian">
+			<view><text>服务宗旨：</text>{{appDesc}}</view>
+		</view>
+	</view>
+</view>

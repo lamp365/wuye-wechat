@@ -1,2 +1,75 @@
 <!--pages/community/community.wxml-->
-<text>pages/community/community.wxml</text>
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="main" wx:if="{{community != ''}}">
+  <view class="box">
+    <view class="one_row">
+      <view>{{community.name}}</view>
+      <view>{{community.house_name}} > </view>
+    </view>
+  </view>
+</view>
+
+<!-- 添加小区 -->
+<view class="report" wx:if="{{!showKong}}">
+  <view class="report-list pad24">
+    <view class="report-top">
+      <text>请不要恶意行为绑定，让我们一起为小区更好的服务！</text>
+    </view>
+
+    <view class="village">
+      <text>来访小区：</text>
+      <picker  class="addres-xz" bindchange="bindChangeCommunity" value="{{c_index}}" range="{{community_arr}}" range-key="name">
+        <view class="picker">{{community_arr[c_index].name}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="village">
+      <text>来访楼号：</text>
+      <picker  class="addres-xz" bindchange="bindChangeBuilding" value="{{b_index}}" range="{{building_arr}}" range-key="floor_num">
+        <view class="picker">{{building_arr[b_index].floor_num}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+    <view class="village">
+      <text>来访房号：</text>
+      <picker  class="addres-xz" bindchange="bindChangeHouse" value="{{h_index}}" range="{{house_arr}}" range-key="name">
+        <view class="picker">{{house_arr[h_index].name}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="name">
+      <text>我的姓名：</text>
+      <input type="text" maxlength="30" bindinput="bindUsername" value="{{username}}" name="" placeholder="请输入你的姓名" />
+    </view>
+    <view class="phone">
+      <text>我的电话：</text>
+      <input type="number" bindinput="bindMobile" value="{{mobile}}" name="mobile"  placeholder="请输入你的手机号" />
+    </view>
+
+    <view class="village">
+      <text>我的身份：</text>
+      <picker  class="addres-xz" bindchange="bindChangeOwnertype" value="{{owner_type_index}}" range="{{owner_type}}" range-key="name">
+        <view class="picker">{{owner_type[owner_type_index].name}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+    
+  </view>
+
+  <view class="addnew">
+    <view class="addanniu pad24" bindtap="bindtapAddMyCommunity">绑定我的小区</view>
+  </view>
+</view>
+
+<!-- end add -->
+
+<image class="add_button" wx:if="{{community == '' && showKong}}" bindtap="bindtapAddCommunity" src="../../images/submit-01.png" ></image>
+
+<!-- 空页面-->
+<view class="box_kong" wx:if="{{community== '' && showKong}}">
+  <image src="../../images/axinxi.png" ></image>
+  <view>暂无小区</view>
+  <view>~ 您还没绑定小区 ~</view>
+</view>
