@@ -37,7 +37,7 @@
 		<!-- 第一个 -->
 		<navigator class="my-f-one" url="../visit/visit">
 			<image src="../../images/my-b-03.png"></image>
-			<view>来访预约</view>
+			<view>来访登记</view>
 		</navigator>
 		<!-- 第一个 -->
 		<view class="my-f-one" url="../vote/vote" bindtap="gotoVotePage">

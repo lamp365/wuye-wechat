@@ -1,2 +1,59 @@
-<!--pages/visit/visit.wxml-->
-<text>pages/visit/visit.wxml</text>
+<loading wx:if="{{showLoading}}">加载中</loading>
+
+<!--提交填报信息-->
+<view class="report">
+  <view class="report-list pad24">
+    <view class="report-top">
+      <text>防控疫情，人人有责，请认真登记您的到访信息</text>
+    </view>
+
+    <view class="village">
+      <text>来访小区：</text>
+      <picker  class="addres-xz" bindchange="bindChangeCommunity" value="{{c_index}}" range="{{community_arr}}" range-key="name">
+        <view class="picker">{{community_arr[c_index].name}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="village">
+      <text>来访楼号：</text>
+      <picker  class="addres-xz" bindchange="bindChangeBuilding" value="{{b_index}}" range="{{building_arr}}" range-key="floor_num">
+        <view class="picker">{{building_arr[b_index].floor_num}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+    <view class="village">
+      <text>来访房号：</text>
+      <picker  class="addres-xz" bindchange="bindChangeHouse" value="{{h_index}}" range="{{house_arr}}" range-key="name">
+        <view class="picker">{{house_arr[h_index].name}}</view>
+      </picker>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="name">
+      <text>我的姓名：</text>
+      <input type="text" maxlength="30" bindinput="bindName" value="{{name}}" name="" placeholder="请输入你的姓名" />
+    </view>
+    <view class="phone">
+      <text>我的电话：</text>
+      <input type="number" bindinput="bindPhone" value="{{phone}}" name="phone"  placeholder="请输入你的手机号" />
+    </view>
+  
+    <view class="village">
+      <text>来访缘由：</text>
+      <input type="text" maxlength="30" bindinput="bindVistInfo" value="{{vist_info}}" name="vist_info" placeholder="请输入来访缘由" />
+      <view class="arrow"></view>
+    </view>
+    <view class="village">
+      <text>当前体温：</text>
+      <input type="text" maxlength="30" bindinput="bindTemperature" value="{{temperature}}" name="temperature" placeholder="请输入你的体温" />
+      <view class="arrow"></view>
+    </view>
+    
+  </view>
+</view>
+<view class="addnew">
+  <view class="addanniu pad24" bindtap="bindtapAddReport">提交到访信息</view>
+</view>
+
+

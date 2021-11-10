@@ -51,7 +51,7 @@
   <view class="shang">
     <view class="shang-item" bindtap="bindtabVisit">
       <image src="../../images/index-01.png"></image>
-      <view>来访预约</view>
+      <view>来访登记</view>
     </view>
 
     <view class="shang-item" bindtap="bindtapRepair">

@@ -51,8 +51,20 @@ function imageToFull(content){
   return result;
 }
 
+ //验证电话号码
+ function _isPhoneNumber(val){
+  var isMobilePhone = /^1[3456789]\d{9}$/;
+  if(isMobilePhone.test(val)){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+
 module.exports = {
   formatTime:formatTime,
   imageUrlReplace:imageUrlReplace,
-  imageToFull:imageToFull
+  imageToFull:imageToFull,
+  _isPhoneNumber:_isPhoneNumber
 }
