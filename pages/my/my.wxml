@@ -17,12 +17,17 @@
 			</view>
 		</view>
 	</view>
-	<!-- 分类 -->
+	<!-- 分类 --> 
 	<view class="my-fen">
 		<!-- 第一个 -->
-		<navigator class="my-f-one" url="../address/address">
-			<image src="../../images/my-b-01.png"></image>
-			<view>地址管理</view>
+		<navigator class="my-f-one" url="../community/community">
+			<image src="../../images/my-b-10.png"></image>
+			<view>我的小区</view>
+		</navigator>
+
+		<navigator class="my-f-one" url="../wuye/wuye">
+			<image src="../../images/my-b-06.png"></image>
+			<view>物业账单</view>
 		</navigator>
 		<!-- 第一个 -->
 		<navigator class="my-f-one" url="../repList/repList">
@@ -30,9 +35,9 @@
 			<view>我的报修</view>
 		</navigator>
 		<!-- 第一个 -->
-		<navigator class="my-f-one" url="../report/report">
+		<navigator class="my-f-one" url="../visit/visit">
 			<image src="../../images/my-b-03.png"></image>
-			<view>防控疫情</view>
+			<view>来访预约</view>
 		</navigator>
 		<!-- 第一个 -->
 		<view class="my-f-one" url="../vote/vote" bindtap="gotoVotePage">

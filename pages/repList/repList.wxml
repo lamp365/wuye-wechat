@@ -1,2 +1,36 @@
 <!--pages/repList/repList.wxml-->
-<text>pages/repList/repList.wxml</text>
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="repList">
+  <!-- 正在报修 -->
+  <view class="list-xiu">
+    <!-- 第一条报修 -->
+    <view class="xiu" wx:for="{{being}}" wx:key="index">
+      <view class="xiu-top">
+        <view>{{item.status_str}}</view>
+        <view>
+          <text></text>{{item.community_name}}</view>
+      </view>
+      <view class="xiu-bottom" bindtap="bindDetails" data-id="{{item.id}}">
+        <view class="xiu-b-left">
+          <view>{{item.reason}}</view>
+          <image wx:if="{{item.thumb}}"  src="{{baseUrl}}{{item.thumb_arr[0]}}"></image>
+          <image wx:if="{{!item.thumb || item.thumb == 'undefined'}}" src="../../images/index-bx.jpg"></image>
+        </view>
+        <view class="xiu-right">
+          <view>{{item.desc}}</view>
+          <view>报修时间：{{item.create_time}}</view>
+          <view wx:if="{{item.mobile}}">本人电话：{{item.mobile}}</view>
+        </view>
+      </view>
+      <!--确认维修已完成-->
+      <view class="replist-button" wx:if="{{item.status == 1}}" bindtap="bindStocks" data-id="{{item.id}}">确认维修已完成</view>
+    </view> 
+  </view>
+  
+</view>
+<!-- 空页面-->
+<view class="cart-kong" wx:if="{{!being || being.length == 0}}">
+  <image src="../../images/apingjia.png"></image>
+  <view>暂无记录</view>
+  <view>~ 报修记录为空呦! ~</view>
+</view>

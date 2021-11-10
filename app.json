@@ -11,7 +11,11 @@
     "pages/search/search",
     "pages/subjectList/subjectList",
     "pages/subjectInfo/subjectInfo",
-    "pages/playerInfo/playerInfo"
+    "pages/playerInfo/playerInfo",
+    "pages/community/community",
+    "pages/wuye/wuye",
+    "pages/visit/visit",
+    "pages/repDetail/repDetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F34A51",

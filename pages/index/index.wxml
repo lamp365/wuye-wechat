@@ -49,9 +49,9 @@
   </view>    <!-- 公告快讯 -->
   <!-- 精品商城 -->
   <view class="shang">
-    <view class="shang-item" bindtap="bindReport">
+    <view class="shang-item" bindtap="bindtabVisit">
       <image src="../../images/index-01.png"></image>
-      <view>疫情防控</view>
+      <view>来访预约</view>
     </view>
 
     <view class="shang-item" bindtap="bindtapRepair">

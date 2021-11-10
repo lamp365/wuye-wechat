@@ -124,4 +124,9 @@ Page({
       url: '../repairs/repairs',
     })
   },
+  bindtabVisit:function(){
+    wx.navigateTo({
+      url: '../visit/visit',
+    })
+  },
 })

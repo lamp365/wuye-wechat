@@ -38,7 +38,10 @@ Config.submitVote = Config.api+'submitVote';
 Config.isLogin = Config.api+'isLogin';
 Config.selectHouse = Config.api+'selectHouse';
 Config.postRepair = Config.api+"postRepair";
-
+Config.repairList = Config.api+'repairList';
+Config.finishRepair = Config.api+'finishRepair';
+Config.repDetail = Config.api+'repDetail';
+ 
 //获取搜索
 Config.searchData = Config.api+'searchData';
 //图片上传
