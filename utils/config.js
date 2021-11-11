@@ -50,6 +50,7 @@ Config.addVisit = Config.api+'addVisit';
 Config.myCommunity = Config.api+'myCommunity';
 Config.addCommunity = Config.api+'addCommunity';
 Config.getPayMent = Config.api+'getPayMent';
+Config.needPay = Config.api+'needPay';
 
 //获取搜索
 Config.searchData = Config.api+'searchData';

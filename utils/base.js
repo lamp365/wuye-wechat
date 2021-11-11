@@ -50,7 +50,7 @@ class Base{
                         that._showMessageToast(res.data.msg)
                     }
                     params.eCallback && params.eCallback(res.data);
-                                  }
+                }
             },
             fail: function (err) {
                 //wx.hideNavigationBarLoading();

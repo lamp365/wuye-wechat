@@ -1,6 +1,6 @@
 <!--pages/community/community.wxml-->
 <loading wx:if="{{showLoading}}">加载中</loading>
-<view class="main">
+<view class="main" wx:if="{{!showAddForm}}">
   <view class="box_title">{{showTitle}}</view>
   <view class="box">
     <view class="one_row_title" wx:if="{{payMent.length >0}}">
@@ -19,11 +19,52 @@
   </view>
 </view>
 
-<image class="add_button" bindtap="bindtapAddpayment" src="../../images/submit-01.png" wx:if="{{showAdd}}"></image>
+
+
+<!-- 添加表单 -->
+<view class="report" wx:if="{{showAddForm}}">
+  <view class="report-list pad24">
+    <view class="report-top">
+      <text>{{payData.expenses_name}}缴纳 {{payData.between_time}}</text>
+    </view>
+
+    <view class="village">
+      <text>所在小区：</text>
+      <view>{{payData.community_name}}</view>
+    </view>
+    <view class="village">
+      <text>所在房号：</text>
+      <view>{{payData.house_name}}</view>
+     
+    </view>
+
+    <view class="name">
+      <text>业主名字：</text>
+      <view>{{payData.owner_name}}</view>
+     
+    </view>
+    <view class="phone">
+      <text>物业费用：</text>
+      <input type="number" bindinput="bindMoney" value="{{payData.amount_total}}" name="amount_total"  placeholder="请填写金额" />
+    </view>
+  
+   
+    
+  </view>
+
+  <view class="addnew">
+    <view class="addanniu pad24" bindtap="bindtapSurePay">确认支付物业</view>
+  </view>
+</view>
+
+
+<!-- end添加表单 -->
+
+<image class="add_button" bindtap="bindtapAddpayment" src="../../images/submit-01.png" wx:if="{{showAdd}}" wx:if="{{needPay == 1 && !showAddForm}}"></image>
 
 
 <!-- 空页面-->
-<view class="box_kong" wx:if="{{payMent.length== 0}}">
+<view class="box_kong" wx:if="{{payMent.length== 0 && !showAddForm }}">
   <image src="../../images/axinxi.png" ></image>
   <view>暂无缴纳记录</view>
   <view>~ 您还没缴纳记录 ~</view>

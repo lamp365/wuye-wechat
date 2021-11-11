@@ -69,6 +69,9 @@ Page({
             sCallback:function(resData){
                 //结果更新失败或者成功不做处理
                 // console.log(resData); 
+                wx.switchTab({
+                  url: '../index/index',
+                });
             }
           }
           BaseObj.request(parame);

@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/wuye/wuye",
+ 
     "pages/start/start",
     "pages/index/index",
     "pages/vote/vote",
@@ -14,7 +14,7 @@
     "pages/subjectInfo/subjectInfo",
     "pages/playerInfo/playerInfo",
     "pages/community/community",
-   
+    "pages/wuye/wuye",
     "pages/visit/visit",
     "pages/repDetail/repDetail",
     "pages/about/about"

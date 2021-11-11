@@ -9,9 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    payMent:[],
+    payMent:[],//存储账单记录
     showAdd:true,
-    showTitle:''
+    showAddForm:false,
+    showTitle:'',
+    needPay:0,
+    payData:[]  //存储需要支付的那个记录
   },
 
   /**
@@ -37,8 +40,12 @@ Page({
         }
         that.setData({
           payMent:payMent,
-          showTitle:showTitle
+          showTitle:showTitle,
+          needPay:needPay
         })
+      },
+      eCallback:function(err){
+        //non to do 
       }
      
     }
@@ -47,6 +54,22 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+
+  bindtapAddpayment:function(){
+    var that = this;
+    this.setData({showLoading:true});
+    var parame = {
+      url:Config.needPay,
+      sCallback:function(res){
+        that.setData({showAddForm:true,showLoading:false,payData:res});
+      }
+    }
+    BaseObj.request(parame);
+  },
+
+  bindtapSurePay:function(){
+
+  },
   onReady: function () {
 
   },
