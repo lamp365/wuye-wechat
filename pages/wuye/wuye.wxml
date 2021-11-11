@@ -1,2 +1,30 @@
-<!--pages/wuye/wuye.wxml-->
-<text>pages/wuye/wuye.wxml</text>
+<!--pages/community/community.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="main">
+  <view class="box_title">{{showTitle}}</view>
+  <view class="box">
+    <view class="one_row_title" wx:if="{{payMent.length >0}}">
+      <view>小区</view>
+      <view>费用</view>
+      <view>时间 </view> 
+    </view> 
+  </view>
+  <view class="box_content" wx:if="{{payMent.length >0}}">
+   
+    <view class="one_row" wx:for="{{payMent}}" wx:key='index'> 
+      <view>{{item.community_name}}</view>  
+      <view>{{item.expenses_name}}[{{item.amount_total}}]</view>
+      <view>{{item.create_time}}</view>
+    </view>
+  </view>
+</view>
+
+<image class="add_button" bindtap="bindtapAddpayment" src="../../images/submit-01.png" wx:if="{{showAdd}}"></image>
+
+
+<!-- 空页面-->
+<view class="box_kong" wx:if="{{payMent.length== 0}}">
+  <image src="../../images/axinxi.png" ></image>
+  <view>暂无缴纳记录</view>
+  <view>~ 您还没缴纳记录 ~</view>
+</view>

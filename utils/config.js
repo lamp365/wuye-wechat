@@ -49,6 +49,7 @@ Config.addVisit = Config.api+'addVisit';
 //我的中心
 Config.myCommunity = Config.api+'myCommunity';
 Config.addCommunity = Config.api+'addCommunity';
+Config.getPayMent = Config.api+'getPayMent';
 
 //获取搜索
 Config.searchData = Config.api+'searchData';

@@ -1,1 +1,68 @@
-/* pages/wuye/wuye.wxss */
+.main{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.box_title{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 24rpx;
+  font-size: 36rpx;
+  color: #F34A51;
+}
+.box{
+  padding: 0rpx 24rpx;
+  width: 702rpx;
+  height: auto;
+  background: #fff;
+  font-size: 30rpx;
+}
+.box_content{
+  padding: 0rpx 24rpx;
+  width: 702rpx;
+  height: auto;
+  background: #fff;
+}
+.one_row_title{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 26rpx 0;
+}
+.one_row{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 26rpx 0;
+}
+
+.add_button{
+  position: absolute;
+  bottom: 30rpx;
+  left: 310rpx;
+  width: 130rpx;
+  height: 130rpx;
+  z-index: 99;
+}
+.one_row>view:nth-child(2){
+ text-align: center;
+}
+.one_row>view:nth-child(3){
+  font-size: 24rpx;
+ }
+
+.box_kong{
+  width: 100%; 
+  height: 100vh;
+  position: relative;
+}
+.box_kong>image{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 240rpx 225rpx 30rpx 225rpx;
+}
+.box_kong>view{
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
