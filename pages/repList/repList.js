@@ -18,18 +18,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    var type = options.type;
+    this.getRepairList(type); 
   }, 
 
-  getRepairList:function(){
+  getRepairList:function(types){
     var that = this;
     var parame = {
       url:Config.repairList,
+      data:{type:types},
+      type:'post',
+      needShowMessage:true,
       sCallback:function(res){
         that.setData({
           being:res,
           showLoading:false
         })
+      },
+      eCallback:function(res){
+        that.setData({ showLoading:false})
       }
     }
     BaseObj.request(parame);
@@ -74,7 +81,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getRepairList(); 
+   
   },
 
   bindDetails:function(e){

@@ -62,22 +62,22 @@
    <!-- 定位图片上面的内容 -->
 
    <!-- 我的报修 -->
-  <view class="xiu" wx:if="{{repa}}">
+  <view class="xiu" wx:if="{{repai}}">
     <view class="xiu-top">
       <view>我的报修</view>
       <view> <text></text>{{repa.orderStatus}}</view>
     </view>
-    <view class="xiu-bottom" bindtap="bindMend" data-orderid="{{repa.orderId}}">
+    <view class="xiu-bottom" bindtap="bindtapRepairInfo" data-id="{{repai.id}}">
       <view class="xiu-b-left">
-        <view>{{repa.fName}}</view>
-        <image wx:if="{{repa.orderSrc1 && repa.orderSrc1 != 'undefined'}}" src="{{baseUrl}}{{repa.orderSrc1}}"></image>
-        <image wx:if="{{!repa.orderSrc1 || repa.orderSrc1 == 'undefined'}}" src="../../images/index-bx.jpg"></image>
+        <view>{{repai.reason}}</view>
+        <image wx:if="{{repai.thumbSrc1 && repai.thumbSrc1 != 'undefined'}}" src="{{baseUrl}}{{repai.thumbSrc1}}"></image>
+        <image wx:if="{{!repai.thumbSrc1 || repai.thumbSrc1 == 'undefined'}}" src="../../images/index-bx.jpg"></image>
       </view>
       <view class="xiu-right">
-        <view>{{repa.orderRemarks}}</view>
-        <view>报修时间：{{repa.createTime}}</view>
-        <view wx:if="{{!repa.userTel}}">本人电话：{{repa.userPhone}}</view>
-        <view wx:if="{{repa.userTel}}">师傅电话：{{repa.userTel}}</view>
+        <view>{{repai.desc}}</view>
+        <view>报修时间：{{repai.create_time}}</view>
+        <view wx:if="{{repai.mobile}}">本人电话：{{repai.mobile}}</view>
+        <view>维修状态：{{repai.status_str}}</view>
       </view>
     </view>
   </view>
@@ -132,6 +132,27 @@
       </scroll-view>
     </view>
   </view>
+
+  <!-- s所有维修列表 -->
+  <view class="rexiao">
+    <view class="you-top">
+      <view>物业维修</view>
+      <view bindtap="bindAllRepairList">更多
+        <image src="../../images/index-05.png"></image>
+      </view>
+    </view>
+    <!-- 内容 -->
+    <view class="re-chan">
+      <!-- 第一个商品 -->
+      <view class="re-c-one" wx:for="{{allRepairList}}" wx:key="index" bindtap="bindtapRepairInfo" data-id="{{item.id}}">
+        <image src="{{baseUrl}}{{item.thumbSrc1}}"></image>
+        <view>{{item.reason}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 已加载全部 -->
+  <view class="index-qb" > —— 别扯了，到底了 ——</view>
 
 
 </view>

@@ -30,7 +30,7 @@
 			<view>物业账单</view>
 		</navigator>
 		<!-- 第一个 -->
-		<navigator class="my-f-one" url="../repList/repList">
+		<navigator class="my-f-one" url="../repList/repList?type=self">
 			<image src="../../images/my-b-02.png"></image>
 			<view>我的报修</view>
 		</navigator>

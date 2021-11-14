@@ -22,6 +22,7 @@ Config.systemInfo = Config.api+'systemInfo';//获取应用信息
 //index
 Config.getBanner = Config.api+'getBanner';//获取轮播图
 Config.getArticle = Config.api + 'getArticle'; //公告快讯 社区新闻  社区活动
+Config.indexRepList = Config.api+'indexRepList';
 
 //获取文章列表
 Config.getArticleList = Config.api+'getArticleList';

@@ -15,6 +15,8 @@ Page({
     news: [], //社区新闻
     bannerArr:[], //轮播图
     showLoading: true, //加载中动画
+    repai: '', //正在维修的维修订单
+    allRepairList:[],
 
     wuyeName: '', //配置信息、小区物业名字
     story: [], //社区故事
@@ -23,7 +25,7 @@ Page({
     currPage: 1, //新品推荐分页页数
     totalPage: '', //新品推荐总页数
     newShop: [], //新品推荐商品
-    repa: '', //正在维修的维修订单
+   
    
     swiperCurrent:0,
     bannerName:Config.bannerName, //名称
@@ -35,6 +37,30 @@ Page({
     this.getBannerList();
     this.indexArticle();
 
+  },
+
+  onShow(){
+    var that = this;
+   //获取我的报修
+   var parame = {
+     url:Config.indexRepList,
+     type:'post',
+     data:{type:'self'},
+     sCallback:function(res){
+      that.setData({repai:res});
+     }
+   };
+   BaseObj.request(parame); 
+   //获取报修列表
+   var parame2 = {
+    url:Config.indexRepList,
+    type:'post',
+    data:{type:'all'},
+    sCallback:function(res){
+      that.setData({allRepairList:res});
+    }
+  };
+  BaseObj.request(parame2); 
   },
   //获取bannerlist
   getBannerList:function(){
@@ -128,5 +154,18 @@ Page({
     wx.navigateTo({
       url: '../visit/visit',
     })
+  },
+
+  bindAllRepairList:function(){
+    wx.navigateTo({
+      url: '../repList/repList?type=all',
+    })
+  },
+
+  bindtapRepairInfo:function(e){
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `../repDetail/repDetail?id=${id}`
+    });
   },
 })
