@@ -46,7 +46,7 @@ function imageToFull(content){
   // var result = content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
   var result = content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match,capture) {
     //console.log(capture);
-    return '<img src="'+capture+'" style="max-width:100%;height:auto;display:block;margin:10px 0;" />';
+    return '<img src="'+Config.baseUrl+capture+'" style="max-width:100%;height:auto;display:block;margin:10px 0;" />';
   });
   return result;
 }

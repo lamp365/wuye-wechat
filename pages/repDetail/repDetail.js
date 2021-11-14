@@ -78,6 +78,13 @@ Page({
 
   },
 
+  previewImg:function(event){
+    let currentUrl = event.currentTarget.dataset.imgurl;
+
+    wx.previewImage({
+      urls: [currentUrl],
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

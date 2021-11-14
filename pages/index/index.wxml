@@ -142,13 +142,17 @@
       </view>
     </view>
     <!-- 内容 -->
-    <view class="re-chan">
+   
+
+      <scroll-view scroll-x  scroll-left="scrollleft" class="re-chan">
       <!-- 第一个商品 -->
       <view class="re-c-one" wx:for="{{allRepairList}}" wx:key="index" bindtap="bindtapRepairInfo" data-id="{{item.id}}">
         <image src="{{baseUrl}}{{item.thumbSrc1}}"></image>
         <view>{{item.reason}}</view>
       </view>
-    </view>
+      </scroll-view>
+
+  
   </view>
 
   <!-- 已加载全部 -->

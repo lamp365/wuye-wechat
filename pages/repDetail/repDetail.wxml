@@ -54,7 +54,7 @@
       <view class="rep-tu" wx:if="{{datas.thumb}}" >
       	<view class="type-top">报修描述照片</view>
       	<view class="rep-pai">
-      		<image wx:for="{{datas.thumb_arr}}" wx:key="index" src="{{baseUrl}}{{item}}"></image>
+      		<image wx:for="{{datas.thumb_arr}}" wx:key="index" src="{{baseUrl}}{{item}}" data-imgurl="{{baseUrl}}{{item}}" bindtap="previewImg"></image>
       	</view>
       </view>
       <!-- 我的地址 -->
@@ -75,7 +75,7 @@
 				</view>
       </view>
       <!-- 确认是否已经维修完成 -->
-      <view class="replist-button" wx:if="{{datas.status == 1}}" bindtap="bindStocks" data-id="{{datas.id}}">确认维修已完成</view>
+      <view class="replist-button" wx:if="{{datas.status == 1 && datas.is_my == 1}}" bindtap="bindStocks" data-id="{{datas.id}}">确认维修已完成</view>
     </view>
   </view>
   <!-- 某某物业 -->

@@ -23,7 +23,7 @@
         </view>
       </view>
       <!--确认维修已完成-->
-      <view class="replist-button" wx:if="{{item.status == 1}}" bindtap="bindStocks" data-id="{{item.id}}">确认维修已完成</view>
+      <view class="replist-button" wx:if="{{item.status == 1 && item.is_my == 1}}" bindtap="bindStocks" data-id="{{item.id}}">确认维修已完成</view>
     </view> 
   </view>
   
