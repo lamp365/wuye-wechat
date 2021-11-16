@@ -52,6 +52,7 @@ Config.myCommunity = Config.api+'myCommunity';
 Config.addCommunity = Config.api+'addCommunity';
 Config.getPayMent = Config.api+'getPayMent';
 Config.needPay = Config.api+'needPay';
+Config.surePay = Config.api+'surePay';
 
 //获取搜索
 Config.searchData = Config.api+'searchData';

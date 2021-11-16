@@ -14,7 +14,8 @@ Page({
     showAddForm:false,
     showTitle:'',
     needPay:0,
-    payData:[]  //存储需要支付的那个记录
+    payData:[],  //存储需要支付的那个记录
+    amount_total:''
   },
 
   /**
@@ -61,14 +62,58 @@ Page({
     var parame = {
       url:Config.needPay,
       sCallback:function(res){
-        that.setData({showAddForm:true,showLoading:false,payData:res});
+        that.setData({showAddForm:true,showLoading:false,payData:res,amount_total:res.amount_total});
       }
     }
     BaseObj.request(parame);
   },
 
-  bindtapSurePay:function(){
+  bindMoney:function(e){
+    this.setData({
+      amount_total: e.detail.value
+    });
+  },
+  bindtapSurePay:function(e){
+    var that = this;
+    var id =  e.currentTarget.dataset.id;
+    var parame = {
+      data:{amount_total:this.data.amount_total,id:id},
+      url:Config.surePay,
+      type:'post',
+      needShowMessage:true,
+      sCallback:function(res){
+          // console.log(res);
+          that.doWeixinPay(res);
 
+      }
+    };
+    BaseObj.request(parame);
+  },
+
+  doWeixinPay:function(param) {
+    var that = this;
+    //小程序发起微信支付
+     
+    wx.requestPayment({
+     
+      timeStamp: param.timeStamp,//记住，这边的timeStamp一定要是字符串类型的，不然会报错
+      nonceStr: param.nonceStr,
+      package: param.package,
+      signType: param.signType,
+      paySign: param.paySign,
+      success: function (event) {
+        BaseObj._showMessageToast('支付成功！');     
+        that.onLoad();
+      },
+      fail: function (error) {
+        console.log("支付失败")  
+        console.log(error)  
+      },
+      complete: function () {
+        console.log("pay complete")
+      }
+    });
+     
   },
   onReady: function () {
 

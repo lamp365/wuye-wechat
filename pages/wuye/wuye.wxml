@@ -53,7 +53,7 @@
   </view>
 
   <view class="addnew">
-    <view class="addanniu pad24" bindtap="bindtapSurePay">确认支付物业</view>
+    <view class="addanniu pad24" bindtap="bindtapSurePay" data-id="{{payData.id}}">确认支付物业</view>
   </view>
 </view>
 
