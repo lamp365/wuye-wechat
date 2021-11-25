@@ -37,16 +37,20 @@ function formatTime(number, format) {
 function imageUrlReplace(content){
   var result = content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match,capture) {
     //console.log(capture);
-    return '<img src="'+ Config.baseUrl+capture+'" style="max-width:100%;height:auto;display:block;margin:10px 0;" />';
+    var path_pos = capture.indexOf('/upload');
+    var path = capture.slice(path_pos);
+    return '<img src="'+ Config.baseUrl+path+'" style="max-width:100%;height:auto;display:block;margin:10px 0;" />';
   });
   return result;
-}
+} 
 //图片自适应
 function imageToFull(content){
   // var result = content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
   var result = content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match,capture) {
     //console.log(capture);
-    return '<img src="'+Config.baseUrl+capture+'" style="max-width:100%;height:auto;display:block;margin:10px 0;" />';
+    var path_pos = capture.indexOf('/upload');
+    var path = capture.slice(path_pos);
+    return '<img src="'+Config.baseUrl+path+'" style="max-width:100%;height:auto;display:block;margin:10px 0;" />';
   });
   return result;
 }

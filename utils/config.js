@@ -5,8 +5,8 @@ class Config {
 
     }
 }
-Config.debug = false;
-Config.applet = '业主事 安心办';
+Config.debug = true;
+Config.applet = '业主事 安心办'; 
 Config.bannerName = '忆家物业';
 Config.bannerDesc = '贴心改变生活，用心创造价值。';
 Config.api = Config.debug ? 'http://wuye-api.com/api/v1/' : "http://81.68.240.241:82/api/v1/";
