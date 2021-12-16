@@ -5,12 +5,12 @@ class Config {
 
     }
 }
-Config.debug = true;
+Config.debug = false;
 Config.applet = '业主事 安心办'; 
 Config.bannerName = '忆家物业';
 Config.bannerDesc = '贴心改变生活，用心创造价值。';
-Config.api = Config.debug ? 'http://wuye-api.com/api/v1/' : "http://81.68.240.241:82/api/v1/";
-Config.baseUrl = Config.debug ? "http://wuye-api.com" : "http://81.68.240.241:82";
+Config.api = Config.debug ? 'http://wuye-api.com/api/v1/' : "https://wuye.coderyun.cn/api/v1/";
+Config.baseUrl = Config.debug ? "http://wuye-api.com" : "https://wuye.coderyun.cn";
 Config.tokenName = 'token';
 Config.onPay = true; 
 
