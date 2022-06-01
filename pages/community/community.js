@@ -206,7 +206,7 @@ Page({
       house_code:this.data.house_arr[h_index].code,
       username:this.data.username,
       mobile:this.data.mobile,
-      owner_type_index:this.data.owner_type_index
+      owner_type:this.data.owner_type_index
     }
     var parame = {
       url:Config.addCommunity,

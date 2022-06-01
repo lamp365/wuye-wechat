@@ -5,7 +5,7 @@ class Config {
 
     }
 }
-Config.debug = false;
+Config.debug = true;
 Config.applet = '业主事 安心办'; 
 Config.bannerName = '忆家物业';
 Config.bannerDesc = '贴心改变生活，用心创造价值。';

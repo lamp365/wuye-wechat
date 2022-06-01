@@ -1,6 +1,6 @@
 <!--pages/community/community.wxml-->
 <loading wx:if="{{showLoading}}">加载中</loading>
-<view class="main" wx:if="{{community != ''}}">
+<view class="main" wx:if="{{community != '' && community != null}}">
   <view class="box">
     <view class="one_row">
       <view>{{community.name}}</view>
@@ -65,10 +65,10 @@
 
 <!-- end add -->
 
-<image class="add_button" wx:if="{{community == '' && showKong}}" bindtap="bindtapAddCommunity" src="../../images/submit-01.png" ></image>
+<image class="add_button" wx:if="{{(community == '' || community == null) && showKong}}" bindtap="bindtapAddCommunity" src="../../images/submit-01.png" ></image>
 
 <!-- 空页面-->
-<view class="box_kong" wx:if="{{community== '' && showKong}}">
+<view class="box_kong" wx:if="{{(community == '' || community == null) && showKong}}">
   <image src="../../images/axinxi.png" ></image>
   <view>暂无小区</view>
   <view>~ 您还没绑定小区 ~</view>
